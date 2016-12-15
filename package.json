@@ -1,0 +1,25 @@
+{
+  "name": "mofron-parts-loading",
+  "version": "0.0.1",
+  "description": "loading parts of mofron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mofron" : "^0.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simpart/mofron-parts-loading.git"
+  },
+  "keywords": [
+    "mofron"
+  ],
+  "author": "simpart",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/simpart/mofron-parts-loading/issues"
+  },
+  "homepage": "https://github.com/simpart/mofron-parts-loading#readme"
+}
