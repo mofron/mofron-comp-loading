@@ -4,7 +4,7 @@
  * @author simpart
  */
 
-module.exports = class extends mofron.parts.Base {
+mofron.parts.Loading = class extends mofron.parts.Base {
     constructor (prm) {
         try {
             super();
