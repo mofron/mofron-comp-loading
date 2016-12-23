@@ -1,10 +1,10 @@
 /**
- * @file   Loading.js
- * @brief  Base UI Loading Class
+ * @file   loading.js
+ * @brief  Loading Component Class
  * @author simpart
  */
 
-mofron.parts.Loading = class extends mofron.parts.Base {
+mofron.comp.Loading = class extends mofron.comp.Base {
     constructor (prm) {
         try {
             super();

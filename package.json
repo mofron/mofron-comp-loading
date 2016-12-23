@@ -1,17 +1,14 @@
 {
-  "name": "mofron-parts-loading",
-  "version": "0.0.3",
-  "description": "loading parts of mofron",
+  "name": "mofron-comp-loading",
+  "version": "0.0.4",
+  "description": "loading component for mofron",
   "main": "dist/loading.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "mofron": "^0.1.11"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simpart/mofron-parts-loading.git"
+    "url": "git+https://github.com/simpart/mofron-comp-loading.git"
   },
   "keywords": [
     "mofron"
@@ -19,9 +16,9 @@
   "author": "simparts",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/simpart/mofron-parts-loading/issues"
+    "url": "https://github.com/simpart/mofron-comp-loading/issues"
   },
-  "homepage": "https://github.com/simpart/mofron-parts-loading#readme",
+  "homepage": "https://github.com/simpart/mofron-comp-loading#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",

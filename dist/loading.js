@@ -57,13 +57,13 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	/**
-	 * @file   Loading.js
-	 * @brief  Base UI Loading Class
+	 * @file   loading.js
+	 * @brief  Loading Component Class
 	 * @author simpart
 	 */
 
-	mofron.parts.Loading = function (_mofron$parts$Base) {
-	    _inherits(_class, _mofron$parts$Base);
+	mofron.comp.Loading = function (_mofron$comp$Base) {
+	    _inherits(_class, _mofron$comp$Base);
 
 	    function _class(prm) {
 	        _classCallCheck(this, _class);
@@ -121,7 +121,7 @@
 	    }]);
 
 	    return _class;
-	}(mofron.parts.Base);
+	}(mofron.comp.Base);
 
 /***/ }
 /******/ ]);
