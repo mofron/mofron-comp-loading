@@ -1,28 +1,25 @@
 {
   "name": "mofron-comp-loading",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "loading component for mofron",
-  "main": "dist/loading.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simpart/mofron-comp-loading.git"
+    "url": "git+https://github.com/mofron/mofron-comp-loading.git"
+  },
+  "dependencies": {
+    "mofron-effect-center" : ""
   },
   "keywords": [
-    "mofron"
+    "front-end"
   ],
   "author": "simparts",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/simpart/mofron-comp-loading/issues"
+    "url": "https://github.com/mofron/mofron-comp-loading/issues"
   },
-  "homepage": "https://github.com/simpart/mofron-comp-loading#readme",
-  "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "webpack": "^1.14.0"
-  }
+  "homepage": "https://github.com/mofron/mofron-comp-loading#readme"
 }
