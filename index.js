@@ -38,13 +38,7 @@ mf.comp.Loading = class extends ModalFil {
             this.addChild(this.frame());
             this.frame().addEffect(new Center());
             /* set text */
-            this.text(
-                new Text({
-                    size  : 30,
-                    style : { 'margin' : 'auto' },
-                    text  : 'Loading...'
-                })
-            );
+            this.text('Loading...');
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -92,10 +86,25 @@ mf.comp.Loading = class extends ModalFil {
                 return ret;
             }
             /* setter  */
-            if (true !== mf.func.isInclude(val, 'Text')) {
+            if (true === mf.func.isInclude(val, 'Text')) {
+                this.frame().addChild(val);
+            } else if ('string' === typeof val) {
+                let txt = this.text();
+                if (0 === txt.length) {
+                    /* add text */
+                    this.frame().addChild(
+                        new Text({
+                            size  : 30,
+                            style : { 'margin' : 'auto' },
+                            text  : val
+                        })
+                    );
+                } else {
+                    txt[0].text(val);
+                }
+            } else {
                 throw new Error('invalid parameter');
             }
-            this.frame().addChild(val);
         } catch (e) {
             console.error(e.stack);
             throw e;
