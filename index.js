@@ -15,11 +15,11 @@ let Center = require('mofron-effect-center');
  */
 mf.comp.Loading = class extends ModalFil {
     
-    constructor (po) {
+    constructor (p_tgt, val) {
         try {
             super();
             this.name('Loading');
-            this.prmOpt(po);
+            this.prmOpt(p_tgt, val);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -31,9 +31,9 @@ mf.comp.Loading = class extends ModalFil {
      * 
      * @param prm : (Date object) display date
      */
-    initDomConts (prm) {
+    initDomConts (tgt, val) {
         try {
-            super.initDomConts();
+            super.initDomConts(tgt, val);
             /* set frame */
             this.addChild(this.frame());
             this.frame().addEffect(new Center());
