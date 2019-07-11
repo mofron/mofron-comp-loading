@@ -1,6 +1,6 @@
 {
   "name": "mofron-comp-loading",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "loading component for mofron",
   "main": "index.js",
   "scripts": {
@@ -11,13 +11,17 @@
     "url": "git+https://github.com/mofron/mofron-comp-loading.git"
   },
   "dependencies": {
-    "mofron-effect-center" : ""
+    "mofron-comp-modalfil" : "",
+    "mofron-comp-frame" : "",
+    "mofron-comp-text" : "",
+    "mofron-effect-hrzpos" : "",
+    "mofron-effect-vrtpos" : ""
   },
   "keywords": [
     "front-end"
   ],
   "author": "simparts",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mofron/mofron-comp-loading/issues"
   },

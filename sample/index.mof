@@ -1,0 +1,9 @@
+<require>
+    <tag module="mofron-comp-loading">Loading</tag>
+</require>
+
+<script>
+loading.visible(true);
+</script>
+
+<Loading name=loading></Loading>

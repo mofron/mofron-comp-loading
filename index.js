@@ -1,25 +1,32 @@
 /**
- * @file   mofron-comp-loading/index.js
- * @brief  loading component for mofron
+ * @file mofron-comp-loading/index.js
+ * @brief loading component for mofron
+ *        it is a component to display when loading
+ * @feature the display position is automatically centered
+ *          this comp is displayed like a modal window
  * @author simpart
  */
-let mf = require('mofron');
-let ModalFil = require('mofron-comp-modalfil');
-let Frame  = require('mofron-comp-frame');
-let Text   = require('mofron-comp-text');
-let Center = require('mofron-effect-center');
+const mf = require("mofron");
+const ModalFil = require("mofron-comp-modalfil");
+const Frame  = require("mofron-comp-frame");
+const Text   = require("mofron-comp-text");
+const HrzPos = require("mofron-effect-hrzpos");
+const VrtPos = require("mofron-effect-vrtpos");
 
-/**
- * @class mofron.comp.Loading
- * @brief loading component class
- */
 mf.comp.Loading = class extends ModalFil {
     
-    constructor (p_tgt, val) {
+    /**
+     * initialize loading component
+     *
+     * @param (component/object) component: child component
+     *                           object: component options
+     * @type private
+     */
+    constructor (po) {
         try {
             super();
-            this.name('Loading');
-            this.prmOpt(p_tgt, val);
+            this.name("Loading");
+            this.prmOpt(po);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -29,42 +36,23 @@ mf.comp.Loading = class extends ModalFil {
     /**
      * initialize dom contents
      * 
-     * @param prm : (Date object) display date
+     * @type private
      */
-    initDomConts (tgt, val) {
+    initDomConts () {
         try {
-            super.initDomConts(tgt, val);
-            /* set frame */
-            this.addChild(this.frame());
-            this.frame().addEffect(new Center());
-            /* set text */
-            this.text('Loading...');
-        } catch (e) {
-            console.error(e.stack);
-            throw e;
-        }
-    }
-    
-    frame (val) {
-        try {
-            if (undefined === val) {
-                /* getter */
-                if (0 === this.child().length) {
-                    return new Frame({
-                        color : new mf.Color(255,255,255),
-                        size  : new mf.Param(200, 100),
-                        style : { 'display' : 'flex' }
-                    });
-                }
-                return this.child()[0];
-            }
-            /* setter */
-            if (true !== mf.func.isInclude(val, 'Frame')) {
-                throw new Error('invalid parameter');
-            }
-            this.updChild(
-                this.child()[0],
-                val
+            super.initDomConts();
+            this.child(this.loadComp());
+            /* defalut loading */
+            this.loadComp(
+                new Frame({
+                    style: { "position": "relative" }, baseColor: [253,253,253],
+                    size: ["2rem","1rem"],
+                    child: new Text({
+                               text: "Loading...", style: { "position": "relative" },
+                               effect: [new HrzPos("center"), new VrtPos("center")],
+                               size: "0.2rem"
+                           })
+                })
             );
         } catch (e) {
             console.error(e.stack);
@@ -72,39 +60,19 @@ mf.comp.Loading = class extends ModalFil {
         }
     }
     
-    text (val) {
+    /**
+     * replace loading component
+     *
+     * @param (component) replace loading component
+     * @return (coponent) loading component
+     * @type parameter
+     */
+    loadComp (prm) {
         try {
-            if (undefined === val) {
-                /* getter */
-                let chd = this.frame().child();
-                let ret = [];
-                for (let c_idx in chd) {
-                    if (true === mf.func.isInclude(chd[c_idx], 'Text')) {
-                        ret.push(chd[c_idx]);
-                    }
-                }
-                return ret;
+            if (true === mf.func.isComp(prm)) {
+                prm.effect([new HrzPos('center'), new VrtPos('center')]);
             }
-            /* setter  */
-            if (true === mf.func.isInclude(val, 'Text')) {
-                this.frame().addChild(val);
-            } else if ('string' === typeof val) {
-                let txt = this.text();
-                if (0 === txt.length) {
-                    /* add text */
-                    this.frame().addChild(
-                        new Text({
-                            size  : 30,
-                            style : { 'margin' : 'auto' },
-                            text  : val
-                        })
-                    );
-                } else {
-                    txt[0].text(val);
-                }
-            } else {
-                throw new Error('invalid parameter');
-            }
+            return this.innerComp("loadComp", prm, mf.Component);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -112,3 +80,4 @@ mf.comp.Loading = class extends ModalFil {
     }
 }
 module.exports = mofron.comp.Loading;
+/* end of file */
