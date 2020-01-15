@@ -3,11 +3,11 @@
 
 loading component for mofron
 
-it is a component to display when loading
+it's component for display when loading
 
 ## Feature
  - the display position is automatically centered
- - this comp is displayed like a modal window
+ - this component is displayed like a modal window
 
 # Install
 ```
@@ -17,18 +17,21 @@ npm install mofron mofron-comp-loading
 # Sample
 ```html
 <require>
-    <tag module="mofron-comp-loading">Loading</tag>
+    <tag load="mofron-comp-loading">Loading</tag>
 </require>
 
 <script>
-loading.visible(true);
+    loading.visible(true);
 </script>
 
-<Loading name=loading></Loading>
+<Loading name=loading>Loading...</Loading>
 ```
+
 # Parameter
 
-|Simple<br>Param | Parameter Name | Type | Description |
-|:--------------:|:---------------|:-----|:------------|
+| Short<br>Form | Parameter Name | Type | Description |
+|:-------------:|:---------------|:-----|:------------|
 | | loadComp | component | replace loading component |
+| ◯  | text | mixed | string: string for display |
+| | | | mofron-comp-text: text component for display |
 
