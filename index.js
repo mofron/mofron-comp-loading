@@ -1,32 +1,37 @@
 /**
  * @file mofron-comp-loading/index.js
  * @brief loading component for mofron
- *        it is a component to display when loading
+ *        it's component for display when loading
  * @feature the display position is automatically centered
- *          this comp is displayed like a modal window
- * @author simpart
+ *          this component is displayed like a modal window
+ * @license MIT
  */
-const mf = require("mofron");
 const ModalFil = require("mofron-comp-modalfil");
 const Frame  = require("mofron-comp-frame");
 const Text   = require("mofron-comp-text");
 const HrzPos = require("mofron-effect-hrzpos");
 const VrtPos = require("mofron-effect-vrtpos");
+const comutl = mofron.util.common;
 
-mf.comp.Loading = class extends ModalFil {
+module.exports = class extends ModalFil {
     
     /**
      * initialize loading component
      *
-     * @param (component/object) component: child component
-     *                           object: component options
+     * @param (mixed) component: child component
+     *                key-value: component config
+     * @short text
      * @type private
      */
-    constructor (po) {
+    constructor (p1) {
         try {
             super();
             this.name("Loading");
-            this.prmOpt(po);
+            this.shortForm("text");
+
+	    if (0 < arguments.length) {
+                this.config(p1);
+	    }
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -45,13 +50,9 @@ mf.comp.Loading = class extends ModalFil {
             /* defalut loading */
             this.loadComp(
                 new Frame({
-                    style: { "position": "relative" }, baseColor: [253,253,253],
-                    size: ["2rem","1rem"],
-                    child: new Text({
-                               text: "Loading...", style: { "position": "relative" },
-                               effect: [new HrzPos("center"), new VrtPos("center")],
-                               size: "0.2rem"
-                           })
+		    baseColor: [253,253,253],
+		    size: new mofron.class.ConfArg("2rem","1rem"),
+		    child: this.text()
                 })
             );
         } catch (e) {
@@ -69,15 +70,40 @@ mf.comp.Loading = class extends ModalFil {
      */
     loadComp (prm) {
         try {
-            if (true === mf.func.isComp(prm)) {
-                prm.effect([new HrzPos('center'), new VrtPos('center')]);
+            if (true === comutl.iscmp(prm)) {
+                prm.effect([ new HrzPos('center'), new VrtPos('center') ]);
             }
-            return this.innerComp("loadComp", prm, mf.Component);
+            return this.innerComp("loadComp", prm, mofron.class.Component);
         } catch (e) {
             console.error(e.stack);
             throw e;
         }
     }
+    
+    /**
+     * display string
+     * 
+     * @param (mixed) string: string for display
+     *                mofron-comp-text: text component for display
+     * @return (mofron-comp-text) text component for display
+     * @type parameter
+     */
+    text (prm) {
+        try {
+	    if ("string" === typeof prm) {
+                prm = new Text(prm);
+	    }
+	    if (true === comutl.isinc(prm, "Text")) {
+	        prm.config({
+                    effect: [new HrzPos("center"), new VrtPos("center")],
+		    size: new mofron.class.ConfArg("0.2rem",{ passive: true })
+	        });
+            }
+	    return this.innerComp("text", prm, Text);
+	} catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
 }
-module.exports = mofron.comp.Loading;
 /* end of file */
