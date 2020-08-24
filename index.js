@@ -26,7 +26,7 @@ module.exports = class extends ModalFil {
     constructor (p1) {
         try {
             super();
-            this.name("Loading");
+            this.modname("Loading");
             this.shortForm("text");
 
 	    if (0 < arguments.length) {

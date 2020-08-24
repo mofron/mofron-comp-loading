@@ -16,9 +16,9 @@ npm install mofron mofron-comp-loading
 
 # Sample
 ```html
-<require>
+<setting>
     <tag load="mofron-comp-loading">Loading</tag>
-</require>
+</setting>
 
 <script>
     loading.visible(true);

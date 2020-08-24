@@ -1,6 +1,6 @@
-<require>
+<setting>
     <tag load="mofron-comp-loading">Loading</tag>
-</require>
+</setting>
 
 <script>
     loading.visible(true);

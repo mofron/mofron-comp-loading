@@ -1,6 +1,6 @@
 {
   "name": "mofron-comp-loading",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "loading component for mofron",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "mofron-effect-vrtpos" : ""
   },
   "keywords": [
-    "front-end"
+    "front-end","mofron"
   ],
   "author": "simparts",
   "license": "MIT",
