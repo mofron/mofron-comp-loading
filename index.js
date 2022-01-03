@@ -46,7 +46,7 @@ module.exports = class extends ModalFil {
     initDomConts () {
         try {
             super.initDomConts();
-            this.child(this.loadComp());
+            super.child(this.loadComp());
             /* defalut loading */
             this.loadComp(
                 new Frame({
@@ -104,6 +104,20 @@ module.exports = class extends ModalFil {
             console.error(e.stack);
             throw e;
         }
+    }
+
+
+    child (prm) {
+        try {
+	    this.rootDom();
+	    if (undefined === prm) {
+                return super.child();
+	    }
+            this.loadComp(prm[0]);
+	} catch (e) {
+            console.error(e.stack);
+            throw e;
+	}
     }
 }
 /* end of file */
