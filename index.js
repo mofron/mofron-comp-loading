@@ -113,7 +113,7 @@ module.exports = class extends ModalFil {
 	    if (undefined === prm) {
                 return super.child();
 	    }
-            this.loadComp(prm[0]);
+            this.loadComp((true === Array.isArray(prm)) ? prm[0] : prm);
 	} catch (e) {
             console.error(e.stack);
             throw e;
